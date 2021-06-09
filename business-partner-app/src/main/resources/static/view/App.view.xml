@@ -1,0 +1,71 @@
+<!DOCTYPE xml>
+<mvc:View xmlns='sap.m' xmlns:mvc="sap.ui.core.mvc" controllerName="ext.samples.businesspartner.controller.App">
+	<App class="sapUiSizeCompact">
+		<Page>
+			<customHeader>
+				<Bar>
+					<contentLeft>
+						<Title text="{i18n>appTitle}" />
+					</contentLeft>
+					<contentRight>
+						<Avatar id="profile" initials="{parts:['user>/firstName','user>/lastName'], formatter:'.formatInitials'}" displaySize="XS" press="onProfilePressed">
+							<dependents>
+								<ResponsivePopover id="userDetailsPopover" placement="Bottom" showHeader="false">
+									<content>
+										<VBox class="sapUiTinyMargin">
+											<Title textAlign="Center" width="100%" 
+												text="{parts:['user>/firstName','user>/lastName'], formatter:'.formatNames'}" 
+												visible="{parts:['user>/firstName','user>/lastName'], formatter:'.namesVisible'}" />
+											<HBox renderType="Bare" alignItems="Baseline">
+												<Label width="8rem" text="{i18n>emailLabel}" textAlign="Right" class="sapUiTinyMarginEnd" />
+												<Text width="12rem" text="{user>/email}" />
+											</HBox>
+										</VBox>
+									</content>
+								</ResponsivePopover>
+							</dependents>
+						</Avatar>
+					</contentRight>
+				</Bar>
+			</customHeader>
+			<content>
+				<VBox class="sapUiTinyMarginTop sapUiMediumMarginBegin sapUiMediumMarginEnd">
+					<Table id="table" items="{partners>/businessPartners}">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="{i18n>tableTitle}" />
+								<ToolbarSpacer />
+								<Button text="{i18n>addPartnerButton}" type="Emphasized" press="onAddPartner">
+									<dependents>
+										<mvc:XMLView id="addPartnerView" viewName="ext.samples.businesspartner.view.AddPartner" />
+									</dependents>
+								</Button>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column>
+								<Text text="{i18n>idColumn}" />
+							</Column>
+							<Column>
+								<Text text="{i18n>nameColumn}" />
+							</Column>
+							<Column>
+								<Text text="{i18n>creationDateColumn}" />
+							</Column>
+							<Column width="3rem"></Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{partners>id}" />
+									<Text text="{parts:['partners>firstName','partners>lastName'], formatter:'.formatNames'}" />
+									<Text text="{path:'partners>creationDate', formatter:'.formatDate'}" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</VBox>
+			</content>
+		</Page>
+	</App>
+</mvc:View> 

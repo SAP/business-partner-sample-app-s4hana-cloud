@@ -1,0 +1,34 @@
+---
+applications:
+# The sample application.
+- name: business-partners-demo
+  instances: 1
+  memory: 896M
+  buildpacks:
+    - java_buildpack
+  routes:
+    - route: business-partners-demo((ID)).((LANDSCAPE_APPS_DOMAIN))
+  path: business-partner-app/target/business-partner-app.jar
+  services:
+    - xsuaa
+    - s4-dest
+    - s4-hana-cloud
+
+# Application Router as web server
+- name: approuter-business-partners-demo
+  path: approuter
+  buildpacks:
+    - nodejs_buildpack
+  memory: 128M
+  routes:
+    - route: business-partners-demo-web((ID)).((LANDSCAPE_APPS_DOMAIN))
+  services:
+    - xsuaa
+  env:
+    TENANT_HOST_PATTERN: "^(.*)-business-partners-demo-web((ID)).((LANDSCAPE_APPS_DOMAIN))"
+    destinations: >
+      [
+        {"name":"token-destination",
+         "url":"https://business-partners-demo((ID)).((LANDSCAPE_APPS_DOMAIN))",
+         "forwardAuthToken": true}
+      ]

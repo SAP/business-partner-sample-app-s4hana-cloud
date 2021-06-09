@@ -1,0 +1,4 @@
+---
+ID: "<your i-user>"
+
+LANDSCAPE_APPS_DOMAIN: "<cf landscape domain>" #for example cfapps.sap.hana.ondemand.com
