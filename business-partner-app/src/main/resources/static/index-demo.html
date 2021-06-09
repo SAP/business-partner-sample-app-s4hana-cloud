@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset="UTF-8" />
+
+
+	<script id="sap-ui-bootstrap" type="text/javascript"
+		src="https://openui5.hana.ondemand.com/1.87.0/resources/sap-ui-core.js" data-sap-ui-theme="sap_fiori_3"
+		data-sap-ui-libs="sap.m, sap.ui.layout" data-sap-ui-preload="async" data-sap-ui-bindingSyntax="complex"
+		data-sap-ui-resourceroots='{ "ext.samples.businesspartner" : "./" }'></script>
+
+	<script>
+		sap.ui.getCore().attachInit(function () {
+			sap.ui.require(
+				["ext/samples/businesspartner/util/Config", "sap/ui/core/util/MockServer"],
+				function (Config, MockServer) {
+					let mockedRequests = [
+						{
+							method: "GET",
+							path: Config.serviceUrl + "/businessPartners",
+							response: function (xhr) {
+								return xhr.respondJSON(
+									200,
+									{},
+									{
+										businessPartners: [
+											{
+												id: "1001036",
+												firstName: "Max",
+												lastName: "Mustermann",
+												creationDate: "2021-05-10T00:00:00"
+											},
+											{
+												id: "1001038",
+												firstName: "Jane",
+												lastName: "Smith",
+												creationDate: "2021-05-25T00:00:00"
+											}
+										],
+									}
+								);
+							},
+						},
+						{
+							method: "POST",
+							path: Config.serviceUrl + "/businessPartners",
+							response: function (xhr) {
+								let payload = JSON.parse(xhr.requestBody);
+
+								return xhr.respondJSON(
+									201,
+									{},
+									{
+										id: jQuery.sap.uid(),
+										firstName: payload.firstName,
+										lastName: payload.lastName,
+										creationDate: new Date().toISOString().substring(0, 19)
+									}
+								);
+							},
+						},
+						{
+							method: "DELETE",
+							path: Config.serviceUrl + "/businessPartners/:1",
+							response: function (xhr) {
+								return xhr.respond(204);
+							},
+						},
+						{
+							method: "GET",
+							path: Config.serviceUrl + "/users/current",
+							response: function (xhr) {
+								return xhr.respondJSON(
+									200,
+									{},
+									{
+										firstName: "John",
+										lastName: "Doe",
+										email: "john.doe@bestrunsap.com"
+									}
+								);
+							},
+						},
+					];
+
+					let mockServer = new MockServer({
+						requests: mockedRequests
+					});
+					mockServer.start();
+
+					Config.initApp("content");
+				}
+			);
+		});
+	</script>
+</head>
+
+<body class="sapUiBody" id="content" />
+
+</html>

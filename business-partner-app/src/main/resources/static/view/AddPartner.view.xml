@@ -1,0 +1,19 @@
+<!DOCTYPE xml>
+<mvc:View xmlns='sap.m' xmlns:mvc="sap.ui.core.mvc" controllerName="ext.samples.businesspartner.controller.AddPartner">
+	<Dialog id="addPartnerDialog" title="{i18n>addPartnerTitle}" class="sapUiSizeCompact" afterClose="resetModel">
+		<content>
+			<HBox alignItems="Center">
+				<Label required="true" text="{i18n>firstNameLabel}" width="5rem" textAlign="Right" class="sapUiSmallMarginEnd" />
+				<Input value="{addPartner>/firstName}" valueLiveUpdate="true" />
+			</HBox>
+			<HBox alignItems="Center">
+				<Label required="true" text="{i18n>lastNameLabel}" width="5rem" textAlign="Right" class="sapUiSmallMarginEnd" />
+				<Input value="{addPartner>/lastName}" valueLiveUpdate="true" />
+			</HBox>
+		</content>
+		<buttons>
+			<Button text="{i18n>submitPartnerButton}" type="Emphasized" press="onSubmitPartner" enabled="{parts:['addPartner>/firstName','addPartner>/lastName'], formatter:'.formatSubmitEnabled'}" />
+			<Button text="{i18n>cancelButton}" press="onCancel" />
+		</buttons>
+	</Dialog>
+</mvc:View> 
