@@ -123,7 +123,7 @@ See [Configure the Entitlements for the Subaccount in SAP BTP](https://help.sap.
 1. To clone the GitHub repository, use this command:
 
       ```
-      git clone https://github.wdf.sap.corp/i323283/s4hana-cloud-ext-business-partner
+      git clone https://github.com/SAP/business-partner-sample-app-s4hana-cloud
       ```
 
 2. To build the application, use this command in a console started from the root folder of the project:
@@ -233,7 +233,7 @@ cf create-service xsuaa application xsuaa -c xsuaa.json
 
 ### 8. Build and Deploy the Application
 
-You have to use **Command Line Interface (CLI)** to deploy and run the Sample Extension Application for Onboarding Employees.
+You have to use **Command Line Interface (CLI)** to deploy and run the Business Partner Sample application for S/4HANA Coud.
 
 1. In the root of the projectlocate the `vars.yml` file and replace the values of the following parameters:
 
