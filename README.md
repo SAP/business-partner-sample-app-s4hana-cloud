@@ -100,21 +100,7 @@ You need to configure the entitlements for the subaccount where the SAP S/4HANA 
 
 See [Configure the Entitlements for the Subaccount in SAP BTP](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/65ad330d11ac49a196948aa8db6470fb.html).
 
-### 4. Clone the Business Partner Sample Application for SAP S/4HANA Cloud from GitHub
-
-1. To clone the GitHub repository, use this command:
-
-      ```
-      git clone https://github.wdf.sap.corp/i323283/s4hana-cloud-ext-business-partner
-      ```
-
-2. To build the application, use this command in a console started from the root folder of the project:
-
-      ```
-      mvn clean install
-      ```
-
-### 5. Configure the Entitlements to the Cloud Foundry Runtime
+### 4. Configure the Entitlements to the Cloud Foundry Runtime
 
 1. Make sure you are logged on to SAP BTP cockpit as a Cloud Foundry administrator.
 
@@ -130,7 +116,22 @@ See [Configure the Entitlements for the Subaccount in SAP BTP](https://help.sap.
 
     3. Choose **Add 1 Service Plan**.
 
-5. On the **Entity Assignments** screen, choose **+** on the **SAP S/4HANA Cloud Extensibility** service row to add at least 1 quota to the subaccount, and then choose **Save**.
+5. On the **Entity Assignments** screen, choose **+** on the **Cloud Foundry Runtime** service row to add at least 1 quota to the subaccount, and then choose **Save**.
+
+### 5. Clone the Business Partner Sample Application for SAP S/4HANA Cloud from GitHub
+
+1. To clone the GitHub repository, use this command:
+
+      ```
+      git clone https://github.wdf.sap.corp/i323283/s4hana-cloud-ext-business-partner
+      ```
+
+2. To build the application, use this command in a console started from the root folder of the project:
+
+      ```
+      mvn clean install
+      ```
+
 
 ### 6. Create a Destination Service Instance
 
