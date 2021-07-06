@@ -1,34 +1,33 @@
 ---
 applications:
 # The sample application.
-- name: business-partners-demo
+- name: business-partners
   instances: 1
   memory: 896M
   buildpacks:
     - java_buildpack
   routes:
-    - route: business-partners-demo((ID)).((LANDSCAPE_APPS_DOMAIN))
+    - route: business-partners-((ID)).cfapps.((REGION_HOST))
   path: business-partner-app/target/business-partner-app.jar
   services:
     - xsuaa
-    - s4-dest
+    - destination
     - s4-hana-cloud
 
 # Application Router as web server
-- name: approuter-business-partners-demo
+- name: approuter-business-partners
   path: approuter
   buildpacks:
     - nodejs_buildpack
   memory: 128M
   routes:
-    - route: business-partners-demo-web((ID)).((LANDSCAPE_APPS_DOMAIN))
+    - route: business-partners-web-((ID)).cfapps.((REGION_HOST))
   services:
     - xsuaa
   env:
-    TENANT_HOST_PATTERN: "^(.*)-business-partners-demo-web((ID)).((LANDSCAPE_APPS_DOMAIN))"
     destinations: >
       [
         {"name":"token-destination",
-         "url":"https://business-partners-demo((ID)).((LANDSCAPE_APPS_DOMAIN))",
+         "url":"https://business-partners-((ID)).cfapps.((REGION_HOST))",
          "forwardAuthToken": true}
       ]

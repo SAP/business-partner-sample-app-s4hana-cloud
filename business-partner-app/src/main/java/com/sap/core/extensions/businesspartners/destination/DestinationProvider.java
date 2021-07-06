@@ -35,7 +35,7 @@ public class DestinationProvider {
 		}
 
 		String serviceName = scpCfServiceInfos.get(0).getServiceName();
-		LOGGER.info("Destination with name [{}] will be used for authorization", serviceName);
+		LOGGER.debug("Destination with name [{}] will be used for authorization", serviceName);
 
 		return serviceName;
 	}

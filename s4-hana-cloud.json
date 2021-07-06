@@ -1,7 +1,7 @@
 {
-	"systemName": "<your system name>",
+	"systemName": "<your-system-name>",
 	"communicationArrangement": {
-		"communicationArrangementName": "<your comm arr name>",
+		"communicationArrangementName": "<your-comm-arr-name>",
 		"scenarioId": "SAP_COM_0008",
 		"inboundAuthentication": "BasicAuthentication",
 		"outboundAuthentication": "BasicAuthentication",
