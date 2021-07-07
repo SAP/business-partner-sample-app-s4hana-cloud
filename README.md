@@ -172,7 +172,7 @@ To connect the **SAP S/4HANA Cloud Business Partner Sample App** to your SAP S/4
       cf create-service destination lite destination
       ```
 
-### 6. Create an SAP S/4HANA Cloud Extensibility Service Instance to Consume the SAP S/4HANA Cloud APIs
+### 7. Create an SAP S/4HANA Cloud Extensibility Service Instance to Consume the SAP S/4HANA Cloud APIs
 
 To consume the SAP S/4HANA Cloud APIs, you create an SAP S/4HANA Cloud Extensibility service instance using the *api-access* service plan.
 
@@ -181,7 +181,9 @@ In the root of the project, there's a file called `s4-hana-cloud.json` which con
 * **"systemName"**: this is the system you registered in step 1. 
 * **"communicationArrangementName"**: the name you specify here will be the same name of the communication arrangement that is going to be automatically created in your SAP S/4HANA Cloud tenant. 
 
-During the service instance creation, an HTTP destination on a subaccount level is automatically generated in this subaccount. It contains all instance binding properties which are sufficient to establish connection to the SAP SuccessFactors system. When creating the service instance, you configure the communication arrangement and the authentication type for the connection in a JSON file. You can do that from [**Cockpit**](#cockpit-1) or [**Command Line Interface (CLI)**](#cli-1):
+During the service instance creation, an HTTP destination on a subaccount level is automatically generated in this subaccount. It contains all instance binding properties which are sufficient to establish connection to the SAP SuccessFactors system. When creating the service instance, you configure the communication arrangement and the authentication type for the connection in a JSON file. 
+
+You can use [**Cockpit**](#cockpit-1) or [**Command Line Interface (CLI)**](#cli-1):
 
 #### Cockpit
 
@@ -205,9 +207,11 @@ During the service instance creation, an HTTP destination on a subaccount level 
 cf create-service s4-hana-cloud api-access s4-hana-cloud -c s4-hana-cloud.json
 ```
       
-### 7. Create a service instance of the Authorization and Trust Management (XSUAA) service
+### 8. Create a service instance of the Authorization and Trust Management (XSUAA) service
 
-To configure the SAP S/4HANA Cloud Business Partner Sample App authentication, you create an Authorization and Trust management service instance with **application** service plan. You can do that from [**Cockpit**](#cockpit-2) or [**Command Line Interface (CLI)**](#cli-2):
+To configure the SAP S/4HANA Cloud Business Partner Sample App authentication, you create an Authorization and Trust management service instance with **application** service plan. 
+
+You can use [**Cockpit**](#cockpit-2) or [**Command Line Interface (CLI)**](#cli-2):
 
 #### Cockpit
 
@@ -231,7 +235,7 @@ To configure the SAP S/4HANA Cloud Business Partner Sample App authentication, y
 cf create-service xsuaa application xsuaa -c xsuaa.json
 ```
 
-### 8. Build and Deploy the Application
+### 9. Build and Deploy the Application
 
 You have to use **Command Line Interface (CLI)** to deploy and run the Sample Extension Application for Onboarding Employees.
 
@@ -251,11 +255,11 @@ You have to use **Command Line Interface (CLI)** to deploy and run the Sample Ex
       cf push --vars-file vars.yml
       ```
 
-### 11. Test the Application
+### 10. Test the Application
 
-1. In the SAP BTP cockpit, navigate to **<your_Cloud Foundry_space>** > **Applications**, and then choose the **business-partners** link to go to the Overview page for the application.
+1. In the SAP BTP cockpit, navigate to **<your_Cloud Foundry_space>** > **Applications**, and then choose the **approuter-business-partners** link to go to the Overview page for the application.
 
-2. On the **business-partners - Overview** page, choose the URL in the **Application Routes** screen area to open the application in your browser.
+2. On the **approuter-business-partners - Overview** page, choose the URL in the **Application Routes** screen area to open the application in your browser.
    
 Alternatively, copy and paste this URL from **routes** property in a browser from CLI when execute the command:
 
