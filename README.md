@@ -1,5 +1,7 @@
 # Business Partner Sample Application for SAP S/4HANA Cloud
 
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/business-partner-sample-app-s4hana-cloud)](https://api.reuse.software/info/github.com/SAP/business-partner-sample-app-s4hana-cloud)
+
 ## Introduction
 
 You can extend the functionality of your SAP S/4HANA Cloud system to manage your business partners. To do that, you can use the **business partner sample application for SAP S/4HANA Cloud**, deploy it in a subaccount in SAP Business Technology Platform (SAP BTP) but have it fully integrated in your SAP S/4HANA Cloud system. Using this application, you can:
@@ -265,5 +267,6 @@ Alternatively, copy and paste this URL from **routes** property in a browser fro
 
       cf app approuter-business-partners
       
+## Licensing
 
-  
+Copyright 2021 SAP SE or an SAP affiliate company and business-partner-sample-app-s4hana-cloud contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/SAP/business-partner-sample-app-s4hana-cloud).
