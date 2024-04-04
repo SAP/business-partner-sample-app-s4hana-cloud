@@ -30,7 +30,7 @@ There are several components and authorizations that you and/or your team member
 * Check which feature set you are using. See [Cloud Management Tools — Feature Set Overview](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/caf4e4e23aef4666ad8f125af393dfb2.html?q=feature%20set).
 
 **On SAP S/4HANA Cloud side:**
-
+ 
 * You have a dedicated SAP S/4HANA Cloud tenant with an Identity Authentication tenant configured. You need to use the same Identity Authentication tenant for your subaccount in SAP BTP.
 * To configure the integration on the SAP S/4HANA Cloud system side, you need a business user with the roles: 
 
