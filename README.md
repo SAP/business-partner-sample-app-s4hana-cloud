@@ -13,7 +13,7 @@ You can extend the functionality of your SAP S/4HANA Cloud system to manage your
 ## Prerequisites
 
 There are several components and authorizations that you and/or your team members need.
-
+ 
 **Tools**
 
 * [JDK 7 or later](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)
